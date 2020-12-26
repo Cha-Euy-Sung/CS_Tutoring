@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 
 def address_to_coordnates(address):
-  API_KEY = 'AIzaSyCCkaQRTqfp-zKfgcWNw5TX63JN6J8_AJg'
+  API_KEY = # API key
   data_type = 'json'
   endpoint = f'https://maps.googleapis.com/maps/api/place/details/{data_type}'
   google_places_API_URL = 'https://maps.googleapis.com/maps/api/place/details/json?'
