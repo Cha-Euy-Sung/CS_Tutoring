@@ -4,5 +4,4 @@
 - Intro to Computer Science / University of Iowa    
 - Computer Science 1 / University of Iowa 
 - Computer / SUNY: Buffalo 
-- AP Computer Science / Asia Pacific International School Seoul
-
+- Intro. to Data Science / New York University
