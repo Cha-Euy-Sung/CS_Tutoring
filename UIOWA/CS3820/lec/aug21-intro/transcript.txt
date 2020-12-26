@@ -1,0 +1,52 @@
+antioch:~/plc/lec/aug21-intro$ ghci
+GHCi, version 7.10.3: http://www.haskell.org/ghc/  :? for help
+Prelude> \ x -> x * x
+
+<interactive>:2:1:
+    No instance for (Show (a0 -> a0))
+      (maybe you haven't applied enough arguments to a function?)
+      arising from a use of ‘print’
+    In the first argument of ‘print’, namely ‘it’
+    In a stmt of an interactive GHCi command: print it
+Prelude> (\ x -> x * x) 3
+9
+Prelude> :t \ x -> x * x
+\ x -> x * x :: Num a => a -> a
+Prelude> :t 3
+3 :: Num a => a
+Prelude> :t 3.14159
+3.14159 :: Fractional a => a
+Prelude> :t "hi"
+"hi" :: [Char]
+Prelude> :t 'a'
+'a' :: Char
+Prelude> :t "ouch"
+"ouch" :: [Char]
+Prelude> :t [ 'a' , 'b' , 'c' ]
+[ 'a' , 'b' , 'c' ] :: [Char]
+Prelude> [ 'a' , 'b' , 'c' ]
+"abc"
+Prelude> [ 'a' , 'b' , "abc" ]
+
+<interactive>:12:15:
+    Couldn't match expected type ‘Char’ with actual type ‘[Char]’
+    In the expression: "abc"
+    In the expression: ['a', 'b', "abc"]
+    In an equation for ‘it’: it = ['a', 'b', "abc"]
+Prelude> :t [ 'a' , 'b' , "abc" ]
+
+<interactive>:1:15:
+    Couldn't match expected type ‘Char’ with actual type ‘[Char]’
+    In the expression: "abc"
+    In the expression: ['a', 'b', "abc"]
+Prelude> 
+Prelude> 
+Prelude> :k Char
+Char :: *
+Prelude> :k []
+[] :: * -> *
+Prelude> :k Int
+Int :: *
+Prelude> :t 3 :: Int
+3 :: Int :: Int
+Prelude> 

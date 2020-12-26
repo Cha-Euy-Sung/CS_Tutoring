@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<title>Travel Origin and Destination</title>
+</head>
+<body>
+	<div class="container">
+		<div class="panel panel-info">
+			<div class="panel-heading" align="left">
+				<h2>
+					<form action="/direction">
+						Origin <br>
+						<input type="text" name="origin"><br>
+            Destination<br>
+            <input type="text" name="destination"><br>
+            Stops<br>
+            <input type="text" name="stop1"><br>
+            <input type="text" name="stop2"><br>
+            <input type="text" name="stop3"><br>           
+            Avoid<br>
+            <input type="text" name="avoid"><br>
+						<input class="btn btn-primary" type="submit" value="Submit">
+          </form>
+        </h2>
+      </div>
+      <div class="panel-heading" align='left'>
+        <h2>
+          <form action="/explore">
+            You are still exploring where to go? We got you! <br>
+				  	<input class="btn btn-primary" type="submit" value="Explore">
+          </form>
+				</h2>
+      </div>
+		</div>
+	</div>
+</body>

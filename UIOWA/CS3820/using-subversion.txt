@@ -1,0 +1,100 @@
+Below are the instructions for installing on Windows.
+
+For Linux, you probably already have subversion in your distribution,
+or you can install it (on Ubuntu: sudo apt install subversion).
+
+For Mac, you can find some instructions online, for example here:
+
+   http://www.wikihow.com/Install-Subversion-on-Mac-OS-X
+
+For Mac/Linux, to check out a repository you use "svn co URL",
+from a command terminal.  Adding files is with "svn add FILES"
+and committing is with "svn commit -m 'put your message here' FILES".
+Updating is with "svn up".
+
+On Mac, if you are using svnX, there is a tutorial here:
+
+   http://divvun.no/doc/tools/docu-svn-user-svnx.html
+
+The instructions below are geared towards Windows users, but
+Mac/Linux users should be able to follow along on their platforms.
+----------------------------------------------------------------------
+0. If you are on the CS lab machines (301 MacLean Hall) or another
+   machine that already has TortoiseSVN, you can skip to step 3.
+
+1. Download TortoiseSVN from http://tortoisesvn.net/downloads.html
+   You should choose 32 bit or 64 bit based on the OS of your computer.
+   Newer machines are probably 64 bit. 
+
+2. When the download is complete, click on the .msi (installer) file
+   that has been downloaded, and follow the instructions to complete
+   the installation.
+
+3. Now navigate to the directory where you want to put the class
+   repository, using Windows Explorer.  I suggest your Documents
+   directory (on the CS lab machines this is mapped to your h:
+   drive and thus will be visible on any CS lab machine), but it
+   is up to you.
+
+4. Right-click on a blank space for that directory in Windows
+   Explorer (the way you would to create a new folder).  Select
+   "SVN Checkout...", and then enter the URL for the class repository,
+   which is:
+
+     https://svn.divms.uiowa.edu/repos/clc/class/3820-fall17
+
+   You do not need to change any other options on that window;
+   just click ok.  
+
+5. You will be asked for a username and password.  Just enter
+   "guest" for username and also "guest" for password (without
+   the quotation marks, in both cases).
+
+6. You should now see a window appear listing a bunch of files
+   being checked out.  The title of the window will change to
+   "Checkout Finished!" when this is all done.
+
+7. The files from the repo are now available in the directory
+   from which you started the svn checkout process.  They are
+   in the 3820-fall17 folder.
+
+8. From time to time, I will add new files to the repository.  To
+   update your copy of the repository, just right-click on the
+   3820-fall17 folder, and select "SVN Update...".  The username and
+   password are "guest" again (same as for Step 5).  Unfortunately, it
+   seems as though maybe TortoiseSVN does not remember the username
+   and password, even if you click the box asking it to do so.
+
+9. You have successfully downloaded the class repository.
+    You should now also check out your own personal repository, where you 
+    will upload your solutions to the homework.  We have created a
+    personal repository for every student registered in the class
+    as of August XXX, 2017.  If you joined the class after 
+    that, email Prof. Stump to get yours.
+
+10. Similarly to step 4 above, do an SVN Checkout of the following,
+    where instead of the word HAWKID, you should put your actual HawkID.
+
+      https://svn.divms.uiowa.edu/repos/clc/class/3820-fall17-submit/HAWKID
+
+    For your username and password, for this directory (unlike the course
+    directory), you need to use your HawkId and HawkId password.
+
+11. To submit your solution to a homework assignment, you first must
+    add each file to subversion, by right-clicking the file and
+    selecting TortoiseSVN -> Add (on Mac/Linux in a command terminal,
+    you do "svn add").  When all the files are added,  right-click the
+    directory for that homework assignment, and select
+    SVN Commit (on Mac/Linux: "svn commit -m 'YOUR-MESSAGE-GOES-HERE'").
+    You can add a commit message (optional) about your
+    commit, and then just click "Ok" to commit your changes.
+    You can commit multiple times this way as needed, if you make
+    changes to your solution.
+
+    To check that your solution was really submitted, you can view your
+    repository directory in a web browser.  Just go to the URL for
+    your repository (the one shown in step 11 above) in a browser, and
+    enter your HawkId and HawkId password.  If you do not find your
+    files there, then double-check that you (a) added them, and (b)
+    committed them.  A very common mistake is to forget to add the
+    new files.

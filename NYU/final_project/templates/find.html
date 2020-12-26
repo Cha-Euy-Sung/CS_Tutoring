@@ -1,0 +1,249 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .title{
+            font-size: 60px;
+            font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+            text-align: center;
+        }
+        #generic{
+            font-size: 24px;
+            font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+            position: relative;
+            text-align: center;
+            padding: 15px;
+        }
+        .goodbye{
+            font-size: 24px;
+            font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+            position: relative;
+            text-align: center;
+            /* padding: 150px; */
+        }
+        .row {
+            display: flex;
+            /* height: 500px; */
+            /* padding: 70px; */
+        }
+        .column {
+            flex: 50%;
+            padding: 15px;
+        }
+        .folium{
+            width: 525px;
+            height: 500px;
+            position: relative;
+            text-align: center
+        }
+        .plots{
+            width: 800px;
+            height: 500px;
+            position: relative;
+            /* margin: 100px 0px 0px 0px; */
+        }
+        .p{
+            font-size: 22px;
+            font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+            height: 500px
+        }
+        .caption{
+            font-size: 24px;
+            font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+            position: relative;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<div class="container"> 
+  <div class="panel-heading" align='center'>
+    <h2>
+      <form action="/route">
+      Found what you need? Go back to find your route! <br>
+      <input class="btn btn-primary" type="submit" value="Find Route">
+      </form>
+		</h2>
+  </div>
+</div>
+
+
+<div class = 'title'>
+    <h1>
+        Points of Interest Analysis
+    </h1>
+</div>
+<div class="row">
+    <div class="column">
+        <div class = 'folium'>
+            {% include "map.html" %}
+        </div>
+        <div>
+            <p class = "caption">
+                Fast Food Map
+            </p>
+        </div>
+    </div>
+    <div class="column">
+        <div class = 'folium'>
+            {% include "map2.html" %}
+        </div>
+        <p class = "caption">
+            Yelp Dataset Restaurants Map
+        </p>
+    </div>
+</div>
+
+<div>
+    <p id = 'generic'>
+        Customers can use these graphs to quickly see where restaurants are located within the US. The first folium map shows fast food restaurants and the second one shows a subset of Yelp's restaurants available in their academic dataset.
+    </p>
+</div>
+<div>
+    {% include "sbrand_graph.html" %}
+    <div>
+        <p class = "caption">
+            Brand Penetration
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <img class="plots" src="rdist_graph.png" />
+        <div>
+            <p class = "caption">
+                Restaurant Rating Distribution
+            </p>
+        </div>
+    </div>
+    <div class="column">
+        <p class = 'p'>
+            There is a clear bell curve of restaurant rating distributions in the Yelp Dataset, with 4.0 rated restaurants having the highest count at ~8K restaurants. There are substantially higher 5.0 ratings than 1.0 ratings, and there is a strong left skew on the graph. The mean rating is 3.47 with a standard deviation of .89.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <img class="plots" src="cuisine_graph.png" />
+        <p class = "caption">
+            Cuisine Graph
+        </p>
+    </div>
+    <div class="column">
+        <p class = 'p'>
+            These graphs are useful to see which state has the most restaurants for your favorite cuisine. Customers can use this in order to quickly see which state has a high concentration / percentage of the cuisine that they want to eat during their trip.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <img class="plots" src="rcity_graph.png" />
+        <p class = "caption">
+            Review Count by City
+        </p>
+    </div>
+    <div class="column">
+        <p class = 'p'>
+            Las Vegas restaurants have the highest number of ratings, with Phoenix and Charlotte tailing significantly at #2 and #3. However, there is significant selection bias shown from this graph because the data itself sampled Las Vegas heavily. However, the graph is still useful in discovering how heavily rated mid tier cities like Phoenix and Charlotte are compared to restaurant dense Las Vegas.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <img class="plots" src="rstate_graph.png" />
+        <p class = "caption">
+            Review Count by State
+        </p>
+    </div>
+    <div class="column">
+        <p class = 'p'>
+            Arizona has the highest number of reviews, with Nevada and Ohio trailing.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <img class="plots" src="food_graph.png" />
+        <p class = "caption">
+            Ratings by Categories
+        </p>
+    </div>
+    <div class="column">
+        <p class = 'p'>
+            Although there aren't significant differences in rating between the cuisines, there is slight variation. Seafood and Ice Cream rate the highest, at around a 3.5 average rating, and Burgers rate the lowest, at around a 2.75 rating.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <img class="plots" src="hdist_graph.png" />
+        <p class = "caption">
+            Hotel Rating Distribution
+        </p>
+    </div>
+    <div class="column">
+        <p class = 'p'>
+            Unlike the restaurant rating distribution, the hotel ratings bell curve s more centered around the 3.0 and 3.5 rating, with less of a strong bell curve, There are around the same number of 4.5 and 5 rating hotels at 400, with most of the distribution clustered within the 3.0 and 4.0 range. One hypothesis as to why there aren’t higher 4.5 and 5 ratings is that customers usually will rate hotels at similar rates once they perceive the hotel as high quality (i.e. above 4.0).
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <img class="plots" src="adist_graph.png" />
+        <p class = "caption">
+            Attraction Rating Distribution
+        </p>
+    </div>
+    <div class="column">
+        <p class = 'p'>
+            Similar to the restaurant rating distribution, attractions have a strong left skew and peak at the 4.0 and 4.5 rating. The mean is higher than hotels, with a 3.92 mean and a .86 standard deviation.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <img class="plots" src="att_graph.png" />
+        <p class = "caption">
+            Ratings by Attraction Categories
+        </p>
+    </div>
+    <div class="column">
+        <p class = 'p'>
+            The museums category has the highest rating among the various attractions, with a 4.18 rating. Festivals and bars have the lowest ratings at 3.63 and 3.7. Nightlife and Music Venues have almost identical ratings at 3.75 and 3.76 respectively.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <img class="plots" src="brand_graph.png" />
+        <p class = "caption">
+            Top 10 Fast Food Brands
+        </p>
+    </div>
+    <div class="column">
+        <p class = 'p'>
+            McDonald’s, Taco Bell and Subway have the most fast food restaurants across the US. On the other end of the spectrum, Pizza Hut, Chick Fil A, and Domino's Pizza have the least number of stores. McDonald’s has the highest number of stores by a substantial margin, with more than 1750 stores and around a 900 store lead on the second highest count restaurant, Taco Bell.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <img class="plots" src="ff_graph.png" />
+        <p class = "caption">
+            Fast Food Restaurant Percentage
+        </p>
+    </div>
+    <div class="column">
+        <p class = 'p'>
+            California, Texas and Florida have the highest number of total fast food restaurants, however these numbers may be skewed due to their larger size. Vermont, Rhode Island, and Alabama have the lowest number, however these numbers may be skewed due to their smaller size.
+        </p>
+    </div>
+</div>
+<div>
+    <p class = 'goodbye'>
+        We hope that this information helps you have a great trip!
+    </p>
+</div>
